@@ -3,11 +3,13 @@ import 'firebase/auth';
 import firebase from 'firebase/app';
 import firebaseConfig from '../../firebase.config';
 
-firebase.initializeApp(firebaseConfig);
-
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
 const Facebook = () => {
 
     const [user, setUser] = useState({})
+
     var FbProvider = new firebase.auth.FacebookAuthProvider();
 
     const handleFacebookLogin = () => {
@@ -29,7 +31,7 @@ const Facebook = () => {
     }
     return (
         <div>
-            <h1>This is Facebook Login</h1>
+            <h1>Facebook Login</h1>
             <h3>Email:{user.email}</h3>
             <img src={user.photoURL} alt=""/>
             <button onClick={handleFacebookLogin}>Sign in With Facebook</button>

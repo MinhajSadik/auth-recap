@@ -6,6 +6,7 @@ import Google from './Component/Google/Google';
 function App() {
   return (
     <div className="App">
+      <h1>Google, Facebook, GitHub Sign in</h1>
       <Google />
       <Facebook />
       <GitHub/>
